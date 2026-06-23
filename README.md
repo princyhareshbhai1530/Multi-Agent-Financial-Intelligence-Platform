@@ -6,7 +6,7 @@ fraud detection, market intelligence, risk assessment, and automated reporting.
 
 The quantitative work (anomaly detection, Value at Risk, concentration) is done by
 real, testable tools. The **OpenAI**-backed LLM layer is responsible only for
-*synthesis* — turning structured findings into analyst-grade narrative — so the
+*synthesis* - turning structured findings into analyst-grade narrative - so the
 platform produces meaningful output even with no API key, and a key simply upgrades
 the narrative quality.
 
@@ -30,12 +30,12 @@ the narrative quality.
                                                               prior risk levels
 ```
 
-- **Agent coordination** — `fraud` and `market` run in parallel from `START`; `risk`
+- **Agent coordination** - `fraud` and `market` run in parallel from `START`; `risk`
   is a fan-in that waits for both, then `reporting` synthesizes everything.
-- **Tool-calling** — agents invoke deterministic tools (`detect_amount_anomalies`,
+- **Tool-calling** - agents invoke deterministic tools (`detect_amount_anomalies`,
   `compute_value_at_risk`, `compute_portfolio_concentration`, …). The same registry
   can be exposed to OpenAI function-calling.
-- **Memory management** — in-graph shared state during a run, plus a persistent
+- **Memory management** - in-graph shared state during a run, plus a persistent
   JSON `MemoryStore` that accumulates cross-run context (repeat-offender accounts,
   prior risk level) that the reporting agent folds into its brief.
 
@@ -54,10 +54,10 @@ the narrative quality.
 ```bash
 pip install -r requirements.txt
 
-# 1) Batch run — prints the executive brief, writes outputs/
+# 1) Batch run - prints the executive brief, writes outputs/
 python run.py
 
-# 2) Dashboard — interactive, real-time view
+# 2) Dashboard - interactive, real-time view
 streamlit run app/dashboard.py
 ```
 
@@ -100,9 +100,9 @@ fin-intel/
 
 The container is the deployable unit. Two common targets:
 
-- **ECS Fargate / App Runner** — `docker build -t fin-intel . && docker push` to ECR,
+- **ECS Fargate / App Runner** - `docker build -t fin-intel . && docker push` to ECR,
   then run the image; App Runner exposes the Streamlit port (8501) with a managed URL.
-- **Batch / scheduled analysis** — run the same image with `python run.py` on an
+- **Batch / scheduled analysis** - run the same image with `python run.py` on an
   EventBridge schedule; swap the JSON `MemoryStore` for DynamoDB and write reports to S3.
 
 For production you'd put `OPENAI_API_KEY` in Secrets Manager and front the dashboard
