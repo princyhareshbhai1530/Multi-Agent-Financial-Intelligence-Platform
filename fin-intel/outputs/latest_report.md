@@ -1,8 +1,8 @@
-# Financial Intelligence — Executive Brief
+# Financial Intelligence - Executive Brief
 _Generated 2026-06-16 09:57 UTC · run #2_
 
 ## Synthesis
-Executive brief — composite risk HIGH.
+Executive brief - composite risk HIGH.
 Fraud summary: flagged_accounts=['ACCT-002', 'ACCT-003', 'ACCT-005'], severity_score=6
 Market summary: regime=risk_off, avg_annualized_vol_pct=44.38
 Risk summary: level=HIGH, score=66, var_95_pct=3.61
