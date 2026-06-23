@@ -1,0 +1,102 @@
+{
+  "backend": "offline",
+  "fraud": {
+    "flagged_accounts": [
+      "ACCT-002",
+      "ACCT-003",
+      "ACCT-005"
+    ],
+    "severity_score": 6,
+    "signals": {
+      "amount": [
+        {
+          "txn_id": "T00061",
+          "account": "ACCT-002",
+          "amount": 48750.0,
+          "modified_z": 460.92,
+          "reason": "amount_outlier"
+        }
+      ],
+      "velocity": [
+        {
+          "account": "ACCT-005",
+          "count_in_window": 5,
+          "window_min": 5,
+          "reason": "velocity_spike"
+        }
+      ],
+      "geo": [
+        {
+          "account": "ACCT-003",
+          "from": "Toronto",
+          "to": "Singapore",
+          "implied_kmh": 30002,
+          "reason": "impossible_travel"
+        }
+      ]
+    },
+    "narrative": "3 account(s) flagged across 69 transactions (severity score 6).\nAmount anomalies:\n  - {txn_id: T00061, account: ACCT-002, amount: 48,750.00, modified_z: 460.92, reason: amount_outlier}\nVelocity anomalies:\n  - {account: ACCT-005, count_in_window: 5, window_min: 5, reason: velocity_spike}\nImpossible travel:\n  - {account: ACCT-003, from: Toronto, to: Singapore, implied_kmh: 30002, reason: impossible_travel}\nRecommendation: Escalate flagged accounts for manual review and apply step-up authentication."
+  },
+  "market": {
+    "regime": "risk_off",
+    "avg_annualized_vol_pct": 44.38,
+    "indicators": [
+      {
+        "symbol": "AAPL",
+        "last_close": 240.01,
+        "period_return_pct": 3.42,
+        "annualized_vol_pct": 54.43,
+        "trend": "up"
+      },
+      {
+        "symbol": "TSLA",
+        "last_close": 210.69,
+        "period_return_pct": 21.95,
+        "annualized_vol_pct": 16.43,
+        "trend": "up"
+      },
+      {
+        "symbol": "JPM",
+        "last_close": 214.59,
+        "period_return_pct": 42.31,
+        "annualized_vol_pct": 45.12,
+        "trend": "up"
+      },
+      {
+        "symbol": "XOM",
+        "last_close": 280.81,
+        "period_return_pct": 2.04,
+        "annualized_vol_pct": 40.89,
+        "trend": "up"
+      },
+      {
+        "symbol": "BTC",
+        "last_close": 264.29,
+        "period_return_pct": -18.21,
+        "annualized_vol_pct": 65.02,
+        "trend": "down"
+      }
+    ],
+    "narrative": "Market regime: risk-off (avg annualized vol 44.4%).\nIndicators:\n  - {symbol: AAPL, last_close: 240.01, period_return_pct: 3.42, annualized_vol_pct: 54.43, trend: up}\n  - {symbol: TSLA, last_close: 210.69, period_return_pct: 21.95, annualized_vol_pct: 16.43, trend: up}\n  - {symbol: JPM, last_close: 214.59, period_return_pct: 42.31, annualized_vol_pct: 45.12, trend: up}\n  - {symbol: XOM, last_close: 280.81, period_return_pct: 2.04, annualized_vol_pct: 40.89, trend: up}\n  - {symbol: BTC, last_close: 264.29, period_return_pct: -18.21, annualized_vol_pct: 65.02, trend: down}\nBreadth: symbols=5, trending_up=4\nRecommendation: Reduce gross exposure and tighten stop levels."
+  },
+  "risk": {
+    "level": "HIGH",
+    "score": 66,
+    "value_at_risk": {
+      "var_pct": 3.61,
+      "confidence": 0.95,
+      "observations": 250
+    },
+    "concentration": {
+      "hhi": 0.2818,
+      "interpretation": "highly_concentrated",
+      "largest_position": "AAPL",
+      "largest_weight_pct": 42.21
+    },
+    "narrative": "Composite risk level: HIGH (score 66/100).\nDrivers: fraud_severity=6, market_regime=risk_off, value_at_risk_95_pct=3.61, concentration=highly_concentrated, largest_position=AAPL\nRecommendation: Escalate to risk committee; de-risk and freeze flagged accounts."
+  },
+  "report": {
+    "markdown": "# Financial Intelligence \u2014 Executive Brief\n_Generated 2026-06-16 09:57 UTC \u00b7 run #2_\n\n## Synthesis\nExecutive brief \u2014 composite risk HIGH.\nFraud summary: flagged_accounts=['ACCT-002', 'ACCT-003', 'ACCT-005'], severity_score=6\nMarket summary: regime=risk_off, avg_annualized_vol_pct=44.38\nRisk summary: level=HIGH, score=66, var_95_pct=3.61\nHistorical context: runs_to_date=2, prior_risk_level=HIGH, repeat_offenders=[{'account': 'ACCT-002', 'times_flagged': 2}, {'account': 'ACCT-003', 'times_flagged': 2}, {'account': 'ACCT-005', 'times_flagged': 2}]\nRecommendation: Escalate to risk committee; de-risk and freeze flagged accounts.\n\n## Fraud Detection\n- Flagged accounts: **3** (ACCT-002, ACCT-003, ACCT-005)\n- Severity score: **6**\n\n## Market Intelligence\n- Regime: **risk_off**\n- Avg annualized volatility: **44.38%**\n\n## Risk Assessment\n- Composite level: **HIGH** (score 66/100)\n- 95% Value at Risk: **3.61%**\n- Concentration: **highly_concentrated** (largest: AAPL)\n\n## Memory / Historical Context\n- Prior risk level: **HIGH**\n- Repeat-offender accounts: ACCT-002, ACCT-003, ACCT-005",
+    "generated_at": "2026-06-16T09:57:12+00:00"
+  }
+}

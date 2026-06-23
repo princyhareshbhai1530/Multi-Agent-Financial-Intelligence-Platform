@@ -1,0 +1,22 @@
+{
+  "runs": [
+    {
+      "ts": "2026-06-16T09:57:11+00:00",
+      "risk_level": "HIGH",
+      "flagged_accounts": 3,
+      "regime": "risk_off"
+    },
+    {
+      "ts": "2026-06-16T09:57:12+00:00",
+      "risk_level": "HIGH",
+      "flagged_accounts": 3,
+      "regime": "risk_off"
+    }
+  ],
+  "flagged_accounts": {
+    "ACCT-002": 2,
+    "ACCT-003": 2,
+    "ACCT-005": 2
+  },
+  "last_risk_level": "HIGH"
+}
